@@ -25,8 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      {/* @ts-ignore */}
-      <html lang="en" data-theme="dark" style={{ "color-scheme": "dark" }}>
+      <html lang="en" data-theme="dark" style={{ colorScheme: "dark" }}>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >

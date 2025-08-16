@@ -1,18 +1,19 @@
-import Header from "@/components/header";
-import { ThemeProvider } from "next-themes";
+import { syncUser } from "@/api/syncUser";
+import ClientWrapper from "@/components/clientWrapper";
 
 export type LayoutProps = {
   children: React.ReactNode;
+  posts: React.ReactNode;
 };
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = async ({ children, posts }) => {
+  await syncUser();
+
   return (
-    <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem>
-      <div className="min-h-screen bg-base-100">
-        <Header />
-        {children}
-      </div>
-    </ThemeProvider>
+    <ClientWrapper>
+      {posts}
+      {children}
+    </ClientWrapper>
   );
 };
 
