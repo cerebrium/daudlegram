@@ -1,32 +1,25 @@
-import { syncUser } from "@/api/syncUser";
 import ClientWrapper from "@/components/clientWrapper";
 
 export type LayoutProps = {
   children: React.ReactNode;
+  user: React.ReactNode;
   posts: React.ReactNode;
-  followers: React.ReactNode;
 };
 
-const Layout: React.FC<LayoutProps> = async ({
-  children,
-  posts,
-  followers,
-}) => {
-  await syncUser();
-
+const Layout: React.FC<LayoutProps> = ({ user, posts, children }) => {
   return (
     <ClientWrapper>
       <div className="flex gap-6 h-screen overflow-hidden">
         {/* Left Sidebar - Followers */}
-        <div className="w-80 flex-shrink-0 h-full overflow-y-auto border-r border-base-200 bg-base-50">
-          {followers}
+        <div className="w-[500px] flex-shrink-0 h-full overflow-y-auto border-r border-base-200 bg-base-50">
+          {user}
         </div>
-        
+
         {/* Main Content - Posts */}
         <div className="flex-1 h-full overflow-y-auto">
           <div className="max-w-2xl mx-auto">
             {posts}
-            
+
             {/* Load More Button */}
             <div className="text-center mt-8 pb-8">
               <button className="btn btn-outline btn-wide">

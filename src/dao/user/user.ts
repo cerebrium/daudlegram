@@ -55,3 +55,30 @@ ${clerkUser.lastName}`
     console.log(e);
   }
 }
+
+export async function findUsers(userIds: Array<string>) {
+  return prisma.user.findMany({
+    where: {
+      id: {
+        in: userIds,
+      },
+    },
+  });
+}
+
+export async function userDaoGetUserById(id: string) {
+  return prisma.user.findUnique({
+    where: {
+      id,
+    },
+    include: {
+      _count: {
+        select: {
+          posts: true,
+          followers: true,
+          following: true,
+        },
+      },
+    },
+  });
+}

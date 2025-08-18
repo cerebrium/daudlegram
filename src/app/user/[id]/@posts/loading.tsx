@@ -1,4 +1,6 @@
-export default function PostsLoading() {
+"use client";
+
+const Loading = () => {
   return (
     <div className="container mx-auto max-w-4xl px-4">
       {/* Loading Posts Header */}
@@ -57,5 +59,6 @@ export default function PostsLoading() {
       </div>
     </div>
   );
-}
+};
 
+export default Loading;

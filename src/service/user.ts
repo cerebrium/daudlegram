@@ -1,6 +1,6 @@
 "use server";
 
-import { getUserById, makeUser } from "@/dao/user/user";
+import { getUserById, makeUser, userDaoGetUserById } from "@/dao/user/user";
 import { currentUser, type User } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
@@ -30,4 +30,8 @@ export async function getCurrentUserFromRequest(
 
 export async function syncClerkAndDbUser(clerkUser: User) {
   return await makeUser(clerkUser);
+}
+
+export async function getUserDetailsById(id: string) {
+  return userDaoGetUserById(id);
 }

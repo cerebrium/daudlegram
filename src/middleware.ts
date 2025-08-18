@@ -10,11 +10,6 @@ export default clerkMiddleware(async (auth, req) => {
 
   const { userId } = await auth();
 
-  // Should never happen
-  if (!userId) {
-    throw new Error("no user Id");
-  }
-
   if (userId && req.nextUrl.pathname === "/") {
     return NextResponse.redirect(new URL("/dashboard", req.url));
   }

@@ -1,4 +1,6 @@
-export default function Loading() {
+"use client";
+
+const Loading = () => {
   return (
     <div className="h-screen bg-base-100">
       <div className="container mx-auto max-w-4xl px-4 py-8">
@@ -88,4 +90,6 @@ export default function Loading() {
       </div>
     </div>
   );
-}
+};
+
+export default Loading;

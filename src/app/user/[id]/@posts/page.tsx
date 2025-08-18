@@ -1,15 +1,19 @@
-import { getFollowedPosts } from "@/api/getPosts";
+import { getUserPosts } from "@/api/getUserPosts";
 import CardBody from "@/app/components/cardbody";
 
-type FollowerPostsProps = {
+export type UserPostsProps = {
+  params: Promise<{ id: string }>;
   searchParams: Promise<{ showComments?: string }>;
 };
 
-const FollowerPosts: React.FC<FollowerPostsProps> = async ({
+const UserPosts: React.FC<UserPostsProps> = async ({
+  params,
   searchParams,
 }) => {
-  const posts = await getFollowedPosts();
-  const params = await searchParams;
+  const userParams = await params;
+
+  const posts = await getUserPosts(userParams.id);
+  const sParams = await searchParams;
 
   if (!posts || !posts.length) {
     return (
@@ -55,7 +59,7 @@ const FollowerPosts: React.FC<FollowerPostsProps> = async ({
             key={post.id}
             className="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300"
           >
-            <CardBody post={post} showComments={params.showComments} />
+            <CardBody post={post} showComments={sParams.showComments} />
           </div>
         ))}
       </div>
@@ -63,4 +67,4 @@ const FollowerPosts: React.FC<FollowerPostsProps> = async ({
   );
 };
 
-export default FollowerPosts;
+export default UserPosts;

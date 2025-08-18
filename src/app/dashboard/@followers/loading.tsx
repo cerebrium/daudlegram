@@ -1,4 +1,4 @@
-export default function PostsLoading() {
+const FollowersLoading = () => {
   return (
     <div className="container mx-auto max-w-4xl px-4">
       {/* Loading Posts Header */}
@@ -50,12 +50,11 @@ export default function PostsLoading() {
       <div className="text-center mt-8">
         <div className="flex flex-col items-center space-y-4">
           <span className="loading loading-spinner loading-lg text-primary"></span>
-          <p className="text-base-content/60">
-            Loading posts from people you follow...
-          </p>
+          <p className="text-base-content/60">Loading Followers...</p>
         </div>
       </div>
     </div>
   );
-}
+};
 
+export default FollowersLoading;

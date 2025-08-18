@@ -10,7 +10,6 @@ export async function getFollowedPosts() {
     id: true,
     following: true,
   });
-  console.log("what is the user: ", user);
 
   if (!user) {
     return null;
