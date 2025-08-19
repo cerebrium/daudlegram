@@ -4,6 +4,7 @@ import CardHeaderThreeDots from "./headerThreeDots";
 import CommentToggleButton from "./commentToggleButton";
 import PostComments from "./postComments";
 import { Suspense } from "react";
+import Image from "next/image";
 
 export type CardBodyProps = {
   post: {
@@ -51,7 +52,7 @@ const CardBody: React.FC<CardBodyProps> = ({ post, showComments }) => {
         {/* Post Image */}
         {post.imageUrl && (
           <div className="mt-4 rounded-2xl overflow-hidden bg-base-200">
-            <img
+            <Image
               src={post.imageUrl}
               alt="Post content"
               className="w-full h-auto max-h-96 object-cover hover:scale-105 transition-transform duration-300"
@@ -77,7 +78,7 @@ const CardBody: React.FC<CardBodyProps> = ({ post, showComments }) => {
       {/* Action Bar */}
       <div className="border-t border-base-200 px-6 py-3">
         <div className="flex items-center justify-between">
-          <CardActions />
+          <CardActions postId={post.id} />
           <div className="flex items-center gap-6">
             <button className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-error/10 transition-colors group">
               <svg

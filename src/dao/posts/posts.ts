@@ -62,3 +62,12 @@ export function getPostsByUserId(id: string, cursor: number = 0) {
     skip: cursor,
   });
 }
+
+export function createNewPost(content: string, userId: string) {
+  return prisma.post.create({
+    data: {
+      userId: userId,
+      content,
+    },
+  });
+}

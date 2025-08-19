@@ -1,13 +1,12 @@
 "use server";
 
-import { syncClerkAndDbUser } from "@/service/user";
+import { syncClerkAndDbUser, getCurrentClerkUser } from "@/service/user";
 import { LRU } from "@/utils";
-import { currentUser } from "@clerk/nextjs/server";
 
 const lru = new LRU(100);
 
 export async function syncUser() {
-  const clerkUser = await currentUser();
+  const clerkUser = await getCurrentClerkUser();
 
   if (!clerkUser) {
     throw new Error("no user in syncUser");

@@ -1,4 +1,5 @@
 import { getPostComments } from "@/api/getPostComments";
+import CommentWrapper from "../clientComponents/commentWrapper";
 
 export type PageProps = {
   id: string;
@@ -13,10 +14,14 @@ const PostComments: React.FC<PageProps> = async ({ id }) => {
         <div className="inline-flex items-center justify-center w-16 h-16 bg-base-200 rounded-full mb-4">
           <span className="text-2xl">💭</span>
         </div>
-        <h4 className="font-bold text-lg text-base-content mb-2">No comments yet</h4>
-        <p className="text-base-content/60 max-w-sm mx-auto">Be the first to share your thoughts on this post!</p>
+        <h4 className="font-bold text-lg text-base-content mb-2">
+          No comments yet
+        </h4>
+        <p className="text-base-content/60 max-w-sm mx-auto">
+          Be the first to share your thoughts on this post!
+        </p>
         <div className="mt-4">
-          <button className="btn btn-primary btn-sm">Add Comment</button>
+          <CommentWrapper postId={id} />
         </div>
       </div>
     );
@@ -29,7 +34,10 @@ const PostComments: React.FC<PageProps> = async ({ id }) => {
         <div className="badge badge-ghost badge-sm">{comments.length}</div>
       </div>
       {comments.map((comment) => (
-        <div key={comment.id} className="flex gap-4 group hover:bg-base-50 p-3 rounded-xl transition-colors duration-200">
+        <div
+          key={comment.id}
+          className="flex gap-4 group hover:bg-base-50 p-3 rounded-xl transition-colors duration-200"
+        >
           <div className="avatar placeholder flex-shrink-0">
             <div className="bg-gradient-to-br from-primary to-secondary text-primary-content rounded-full w-12 h-12 shadow-lg ring-2 ring-base-300">
               <span className="text-sm font-bold">
@@ -51,11 +59,11 @@ const PostComments: React.FC<PageProps> = async ({ id }) => {
                   )}
                 </div>
                 <time className="text-xs text-base-content/50 font-medium">
-                  {new Date(comment.createdAt).toLocaleDateString('en-US', {
-                    month: 'short',
-                    day: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit'
+                  {new Date(comment.createdAt).toLocaleDateString("en-US", {
+                    month: "short",
+                    day: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
                   })}
                 </time>
               </div>
