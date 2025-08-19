@@ -1,4 +1,5 @@
 import { getUserDetails } from "@/api/getUserDetails";
+import Image from "next/image";
 
 export type UserDetailsProps = {
   params: Promise<{ id: string }>;
@@ -38,7 +39,7 @@ const UserDetails: React.FC<UserDetailsProps> = async ({ params }) => {
             <div className="avatar placeholder">
               <div className="w-24 h-24 bg-gradient-to-br from-primary to-secondary text-primary-content rounded-full shadow-lg ring-4 ring-base-200">
                 {userDetails.avatar ? (
-                  <img
+                  <Image
                     src={userDetails.avatar}
                     alt={userDetails.username}
                     className="rounded-full"

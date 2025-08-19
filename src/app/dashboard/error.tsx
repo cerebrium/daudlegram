@@ -12,15 +12,12 @@ const ErrorComponent = ({
       <div className="container mx-auto max-w-md px-4">
         <div className="card bg-base-100 shadow-2xl">
           <div className="card-body text-center">
-            {/* Error Icon */}
             <div className="text-6xl mb-4">⚠️</div>
 
-            {/* Error Title */}
             <h2 className="card-title justify-center text-2xl text-error mb-2">
               Oops! Something went wrong
             </h2>
 
-            {/* Error Message */}
             <p className="text-base-content/70 mb-4">
               We encountered an unexpected error while loading your dashboard.
               Don't worry, this is temporary!
@@ -95,4 +92,3 @@ const ErrorComponent = ({
 };
 
 export default ErrorComponent;
-

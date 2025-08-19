@@ -55,7 +55,7 @@ const FollowerPosts: React.FC<FollowerPostsProps> = async ({
             key={post.id}
             className="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300"
           >
-            <CardBody post={post} showComments={params.showComments} />
+            <CardBody post={post} showComments={params.showComments || ""} />
           </div>
         ))}
       </div>

@@ -15,3 +15,17 @@ export async function commentFromPostId(id: string) {
     },
   });
 }
+
+export async function createCommentForPost(
+  content: string,
+  userId: string,
+  postId: string,
+) {
+  return prisma.comment.create({
+    data: {
+      content,
+      userId,
+      postId,
+    },
+  });
+}

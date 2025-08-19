@@ -1,4 +1,10 @@
-const CardActions = () => {
+import CommentWrapper from "../clientComponents/commentWrapper";
+
+export type CardActionsProps = {
+  postId: string;
+};
+
+const CardActions: React.FC<CardActionsProps> = ({ postId }) => {
   return (
     <div className="flex space-x-2">
       <form>
@@ -20,23 +26,7 @@ const CardActions = () => {
           Like
         </button>
       </form>
-      <button className="btn btn-ghost btn-sm hover:btn-primary">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-          />
-        </svg>
-        Comment
-      </button>
+      <CommentWrapper postId={postId} />
       <button className="btn btn-ghost btn-sm hover:btn-secondary">
         <svg
           xmlns="http://www.w3.org/2000/svg"

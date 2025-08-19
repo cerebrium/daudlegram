@@ -21,12 +21,12 @@ const Layout: React.FC<LayoutProps> = async ({
         <div className="w-80 flex-shrink-0 h-full overflow-y-auto border-r border-base-200 bg-base-50">
           {followers}
         </div>
-        
+
         {/* Main Content - Posts */}
         <div className="flex-1 h-full overflow-y-auto">
           <div className="max-w-2xl mx-auto">
             {posts}
-            
+
             {/* Load More Button */}
             <div className="text-center mt-8 pb-8">
               <button className="btn btn-outline btn-wide">

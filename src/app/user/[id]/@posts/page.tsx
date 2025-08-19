@@ -59,7 +59,7 @@ const UserPosts: React.FC<UserPostsProps> = async ({
             key={post.id}
             className="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300"
           >
-            <CardBody post={post} showComments={sParams.showComments} />
+            <CardBody post={post} showComments={sParams.showComments || ""} />
           </div>
         ))}
       </div>
